@@ -33,10 +33,14 @@
 
 makeCacheMatrix <- function(x = matrix()) {
     s <- NULL
+    set <- function(y) {
+        x <<- y
+        s <<- NULL
+    }
     get <- function() { x }
     setsolve <- function(solve) { s <<- solve }
     getsolve <- function() { s }
-    list(get = get, setsolve = setsolve, getsolve = getsolve)
+    list(set = set, get = get, setsolve = setsolve, getsolve = getsolve)
 }
 
 ##  After save our Matrix, we need to calculate its inverse
